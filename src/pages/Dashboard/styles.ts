@@ -79,11 +79,11 @@ export const TopBarIcons = styled.View`
 `;
 
 export const ContentWrapper = styled.View`
-  flex-grow: 1;
-  flex-direction: column;
+  flex: 1;
+  padding: 0 0 32px 0;
+  margin-top: 8px; /* Diminua aqui (ex: de 32px para 8px ou 0) */
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 32px;
 `;
 
 export const FilterButtons = styled.View`
@@ -135,36 +135,37 @@ export const FilterButtonTextActive = styled.Text`
 export const CardContainer = styled.View`
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
   margin-bottom: 32px;
+  margin-top: 28px;
 `;
 
 export const Card = styled.View`
   background: #202024;
-  padding: 29px 24px;
-  border-radius: 8px;
+  padding: 18px 0 12px 0;
+  border-radius: 12px;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  min-width: 100px;
-  height: 120px;
+  width: 268px;
+  height: 154px;
   margin: 0 8px;
   flex-direction: column;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 `;
 
 export const CardNumber = styled.Text`
-  font-size: 32px;
+  font-size: 38px;
   color: #fff;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 `;
 
 export const CardLabel = styled.Text`
-  font-size: 14px;
+  font-size: 17px;
   color: #b0b0b0;
   text-align: center;
+  font-weight: 500;
 `;
 
 export const ChartsRow = styled.View`
@@ -180,8 +181,8 @@ export const ChartBox = styled.View`
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
-  width: 320px;
-  min-width: 220px;
+  width: 455px;
+  height: 340px;
   align-self: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
@@ -264,4 +265,50 @@ export const TopBarNavItem = styled.TouchableOpacity<{ active?: boolean }>`
   align-items: center;
   justify-content: center;
   /* Não coloque nenhuma barrinha ou destaque lateral aqui */
+`;
+
+// Adicione estes novos estilos para o filtro grande no topo:
+
+export const FilterBarWrapper = styled.View`
+  width: 100%;
+  background: #202024;
+  border-radius: 20px;
+  margin-top: 40px;
+  margin-bottom: 36px;
+  align-self: center;
+  max-width: 900px;
+  padding: 32px 0 24px 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+`;
+
+export const FilterBarTitle = styled.Text`
+  font-size: 20px;
+  color: #f0f0f0;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-bottom: 18px;
+`;
+
+export const FilterBarRow = styled.View`
+  flex-direction: row;
+  width: 90%;
+  align-self: center;
+  border-width: 2px;
+  border-color: #44aa00;
+  border-radius: 14px;
+  background: transparent;
+  overflow: hidden;
+`;
+
+export const FilterBarButton = styled.TouchableOpacity<{ active?: boolean }>`
+  flex: 1;
+  padding: 18px 0;
+  background: ${({ active }) => (active ? "#44AA00" : "transparent")};
+  align-items: center;
+`;
+
+export const FilterBarButtonText = styled.Text<{ active?: boolean }>`
+  color: ${({ active }) => (active ? "#fff" : "#e0e0e0")};
+  font-size: 18px;
+  font-weight: 700;
 `;

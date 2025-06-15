@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="62ad9950-5a0b-416e-87c6-88cc6499137d"
+    Name="7d54e57a-3ff0-4c32-93c5-0fe24d01f999"
     Publisher="CN=victo"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="62ad9950-5a0b-416e-87c6-88cc6499137d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="7d54e57a-3ff0-4c32-93c5-0fe24d01f999" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>GreenSenseDesk</DisplayName>
