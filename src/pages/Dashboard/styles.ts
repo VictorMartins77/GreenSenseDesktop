@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import NotificationModal from "../../components/NotificationModal";
+
 
 // Layout containers
 export const Container = styled.View`

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Platform, Dimensions } from "react-native";
+import { Platform, Dimensions, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import logoImg from "../../assets/logo.png";
 import loginImg from "../../assets/login-image.png";
+import { useAuth } from "../../context/AuthContext";
 import {LoginContainer,LoginFormSection,Logo,LogoImage,Description,LoginForm,FormGroup,Input,SubmitButton,SubmitButtonText,LoginImageSection,LoginImage} from "./styles";
 
 const { width } = Dimensions.get("window");
@@ -12,9 +13,28 @@ export default function Login() {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setToken } = useAuth();
 
-  const handleSubmit = () => {
-    navigation.navigate("Dashboard" as never);
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: email, senha: password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setToken(data.token); // Salva o token no contexto
+        navigation.navigate("Dashboard" as never);
+      } else {
+        Alert.alert("E-mail ou senha inválidos.");
+      }
+    } catch (error) {
+      Alert.alert("Erro ao conectar com o servidor.");
+    }
   };
 
   return (
